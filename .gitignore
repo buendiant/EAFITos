@@ -1,0 +1,75 @@
+# ===== Compilación C =====
+
+*.o
+*.out
+*.a
+*.so
+*.exe
+*.dll
+*.dylib
+*.lib
+
+# binarios generados
+
+main
+program
+bin/
+build/
+dist/
+out/
+
+# ===== Make =====
+
+*.d
+*.mk
+Makefile.bak
+
+# ===== Logs =====
+
+*.log
+
+# ===== Tests =====
+
+tests/bin/
+tests/build/
+
+# ===== Scripts temporales =====
+
+*.sh~
+*.swp
+
+# ===== Linux =====
+
+*~
+.cache/
+tmp/
+
+# ===== VSCode =====
+
+.vscode/
+
+# ===== CLion / JetBrains =====
+
+.idea/
+cmake-build-*/
+
+# ===== Mac =====
+
+.DS_Store
+
+# ===== Windows =====
+
+Thumbs.db
+desktop.ini
+
+# ===== Coverage =====
+
+*.gcda
+*.gcno
+*.gcov
+coverage/
+
+# ===== Dependencias generadas =====
+
+compile_commands.json
+s
