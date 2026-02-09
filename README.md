@@ -79,10 +79,10 @@ Esto evita subir binarios y archivos innecesarios al repositorio.
 
 ## 👥 Integrantes
 
-* Juan Antonio Buendía
-* Juan Pablo Elmasri
-* Ismael García
-* Alessandro Soccol
+* Juan Antonio Buendia Sanchez
+* Juan Pablo Parra Elmasri
+* Ismael García Ceballos
+* Alessandro Soccol Mejía
 
 ## 📌 Notas
 
