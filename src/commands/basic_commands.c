@@ -19,6 +19,8 @@ void helpOS(char **args) {
     printf("    *[ tiempo ]: Muestra la fecha y hora actual\n");
     printf("    *[ calc <num1> <operador> <num2> ]: Realiza una operación aritmética\n");
     printf("    *[ ayuda ]: Muestra esta lista de comandos\n");
+    printf("    *[ buscar ] <texto> <archivo>: Busca un texto dentro de un archivo\n");
+    printf("    *[ estadisticas ] <archivo>: Muestra bytes, lineas y palabras del archivo\n");
     printf("    *[ salir ]: Terminar la ejecución del sistema operativo\n");
 
     (void) args;// Evita advertencias de variables no utilizadas
