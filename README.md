@@ -2,7 +2,7 @@
 
 Proyecto en **C** que implementa una shell y utilidades básicas del sistema, organizado por módulos (`commands`, `core`, `utils`) y con scripts de compilación y pruebas.
 
-## 📁 Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 eafitos/
@@ -19,7 +19,7 @@ eafitos/
 └── README.md
 ```
 
-## ⚙️ Requisitos
+##  Requisitos
 
 * GCC o Clang
 * Make
@@ -32,7 +32,7 @@ sudo apt update
 sudo apt install build-essential
 ```
 
-## 🛠️ Compilación
+##  Compilación
 
 Desde la raíz del proyecto:
 
@@ -48,25 +48,21 @@ Para limpiar archivos compilados:
 make clean
 ```
 
-## ▶️ Ejecución
+##  Ejecución
 
 ```bash
 ./eafitos
 ```
 
-*(El nombre del ejecutable puede variar según el Makefile.)*
+##  Tests
 
-## 🧪 Tests
-
-Si el proyecto incluye pruebas:
+el proyecto incluye pruebas:
 
 ```bash
 make test
 ```
 
-o revisar la carpeta `tests/`.
-
-## 🧾 .gitignore
+##  .gitignore
 
 El proyecto incluye un `.gitignore` configurado para:
 
@@ -77,20 +73,15 @@ El proyecto incluye un `.gitignore` configurado para:
 
 Esto evita subir binarios y archivos innecesarios al repositorio.
 
-## 👥 Integrantes
+##  Integrantes
 
 * Juan Antonio Buendia Sanchez
 * Juan Pablo Parra Elmasri
 * Ismael García Ceballos
 * Alessandro Soccol Mejía
 
-## 📌 Notas
-
-* Proyecto académico.
-* Diseñado para sistemas tipo Unix.
-* Se recomienda usar WSL o Linux para desarrollo.
-* Mantener el código formateado y modularizado por carpetas.
 
 ---
 
 Proyecto desarrollado con fines educativos.
+
