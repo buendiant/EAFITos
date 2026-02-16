@@ -15,7 +15,12 @@
 #include "commands.h"
 
 
-
+/**
+ * @brief Comando buscar
+ * Este archivo
+ * 
+ * @param args 
+ */
 void buscarOS(char **args) {
     if (args[1] == NULL || args[2] == NULL) {
         printf("Uso: buscar <texto> <archivo>\n");
