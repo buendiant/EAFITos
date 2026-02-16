@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "commands.h"
- /**
+/**
   * @brief Comando de ayuda.
   * 
   * Muestra una lista de comandos que el usuario puede ingresar para interactuar con el sistema opeativo.
@@ -20,6 +20,9 @@ void helpOS(char **args) {
     printf("    *[ calc <num1> <operador> <num2> ]: Realiza una operación aritmética\n");
     printf("    *[ ayuda ]: Muestra esta lista de comandos\n");
     printf("    *[ salir ]: Terminar la ejecución del sistema operativo\n");
+    printf("    *[ renombrar ] <viejo> <nuevo>: Cambia el nombre de un archivo\n");
+    printf("    *[ mover ] <origen> <destino>: Mueve un archivo de ubicación\n");
+
 
     (void) args;// Evita advertencias de variables no utilizadas
 }

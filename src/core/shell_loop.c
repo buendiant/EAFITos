@@ -17,8 +17,11 @@ char *nombreComandos[] = {
     "tiempo",
     "calc",
     "ayuda",
-    "salir"
+    "salir",
+    "renombrar",
+    "mover"
 };
+
 
 void (*funcionesComandos[])(char **) = {
     &listOS,
@@ -26,8 +29,11 @@ void (*funcionesComandos[])(char **) = {
     &timeOS,
     &calcOS,
     &helpOS,
-    &exitOS
+    &exitOS,
+    &renameOS,
+    &moveOS
 };
+
 
 int numcom(){
     return sizeof(nombreComandos) / sizeof(char *);

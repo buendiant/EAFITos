@@ -38,3 +38,7 @@ void exitOS(char **args);
  */
 int numcom();
 #endif
+
+void renameOS(char **args);
+
+void moveOS(char **args);
