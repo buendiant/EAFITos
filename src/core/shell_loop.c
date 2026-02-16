@@ -23,6 +23,7 @@ char *nombreComandos[] = {
     "mover",
     "directorio",
     "limpiar",
+    "usuario",
     "salir"
 };
 
@@ -39,6 +40,7 @@ void (*funcionesComandos[])(char **) = {
     &moveOS,
     &dirOS,
     &cleanOS,
+    &usuarioOS,
     &exitOS
 };
 
