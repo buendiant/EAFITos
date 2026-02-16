@@ -17,7 +17,10 @@ char *nombreComandos[] = {
     "tiempo",
     "calc",
     "ayuda",
-    "salir"
+    "salir",
+    "buscar",
+    "estadisticas"
+
 };
 
 void (*funcionesComandos[])(char **) = {
@@ -26,7 +29,10 @@ void (*funcionesComandos[])(char **) = {
     &timeOS,
     &calcOS,
     &helpOS,
-    &exitOS
+    &exitOS,
+    &buscarOS,
+    &estadisticasOS
+
 };
 
 int numcom(){

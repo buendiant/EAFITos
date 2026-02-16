@@ -1,0 +1,124 @@
+/**
+ * @file advanced_commands.c
+ * @brief Comandos avanzados (archivos): buscar y estadisticas.
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <sys/stat.h>
+#include <errno.h>
+
+#include "commands.h"
+
+// =============================
+// buscar <texto> <archivo>
+// =============================
+void buscarOS(char **args) {
+    // Validación de argumentos:
+    // args[0] = "buscar"
+    // args[1] = texto
+    // args[2] = archivo
+    if (args[1] == NULL || args[2] == NULL) {
+        printf("Uso: buscar <texto> <archivo>\n");
+        return;
+    }
+
+    const char *texto = args[1];
+    const char *archivo = args[2];
+
+    FILE *f = fopen(archivo, "r");
+    if (!f) {
+        perror("buscar: fopen");
+        return;
+    }
+
+    char line[4096];
+    long linea = 0;
+    long coincidencias = 0;
+
+    while (fgets(line, sizeof(line), f)) {
+        linea++;
+
+        // Coincidencia simple (case-sensitive)
+        if (strstr(line, texto) != NULL) {
+            coincidencias++;
+            printf("linea %ld: %s", linea, line);
+
+            // Si la línea no trae '\n', lo añadimos para que se vea bien
+            size_t len = strlen(line);
+            if (len > 0 && line[len - 1] != '\n') {
+                printf("\n");
+            }
+        }
+    }
+
+    printf("Coincidencias: %ld\n", coincidencias);
+    fclose(f);
+}
+
+// =============================
+// estadisticas <archivo>
+// =============================
+void estadisticasOS(char **args) {
+    // args[0] = "estadisticas"
+    // args[1] = archivo
+    if (args[1] == NULL) {
+        printf("Uso: estadisticas <archivo>\n");
+        return;
+    }
+
+    const char *archivo = args[1];
+
+    // Bytes con stat()
+    struct stat st;
+    if (stat(archivo, &st) != 0) {
+        perror("estadisticas: stat");
+        return;
+    }
+
+    FILE *f = fopen(archivo, "r");
+    if (!f) {
+        perror("estadisticas: fopen");
+        return;
+    }
+
+    long lineas = 0;
+    long palabras = 0;
+    long caracteres = 0;
+
+    int c;
+    int in_word = 0;
+    int saw_any = 0;
+    int last = 0;
+
+    while ((c = fgetc(f)) != EOF) {
+        saw_any = 1;
+        caracteres++;
+        last = c;
+
+        if (c == '\n') {
+            lineas++;
+        }
+
+        if (isspace((unsigned char)c)) {
+            in_word = 0;
+        } else if (!in_word) {
+            in_word = 1;
+            palabras++;
+        }
+    }
+
+    // Si el archivo tuvo contenido y no terminó en '\n', cuenta la última línea
+    if (saw_any && last != '\n') {
+        lineas++;
+    }
+
+    fclose(f);
+
+    printf("Archivo: %s\n", archivo);
+    printf("Bytes: %lld\n", (long long)st.st_size);
+    printf("Lineas: %ld\n", lineas);
+    printf("Palabras: %ld\n", palabras);
+    printf("Caracteres leidos: %ld\n", caracteres);
+}
