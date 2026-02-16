@@ -17,11 +17,11 @@ char *nombreComandos[] = {
     "tiempo",
     "calc",
     "ayuda",
+    "buscar",
+    "estadisticas",
+    "renombrar",
+    "mover",
     "salir"
-    "buscar"
-    "estadisticas"
-    "renombrar"
-    "mover"
 };
 
 
@@ -31,11 +31,11 @@ void (*funcionesComandos[])(char **) = {
     &timeOS,
     &calcOS,
     &helpOS,
-    &exitOS
     &buscarOS,
-    &estadisticasOS
+    &estadisticasOS,
     &renameOS,
-    &moveOS
+    &moveOS,
+    &exitOS
 };
 
 

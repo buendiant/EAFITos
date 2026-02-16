@@ -62,4 +62,4 @@
             return;
     }
     printf("Resultado: %.2f\n", res);//Se limita el resutlado a 2 decimales
- }
+}
