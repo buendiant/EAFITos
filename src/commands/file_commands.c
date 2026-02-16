@@ -66,4 +66,6 @@ void readOS(char **args){
         putchar(c);
     }
     fclose(fp);
+
+    printf("\n");
 }

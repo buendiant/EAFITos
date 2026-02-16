@@ -10,17 +10,13 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h> 
 
 #include "commands.h"
 
-// =============================
-// buscar <texto> <archivo>
-// =============================
+
+
 void buscarOS(char **args) {
-    // Validación de argumentos:
-    // args[0] = "buscar"
-    // args[1] = texto
-    // args[2] = archivo
     if (args[1] == NULL || args[2] == NULL) {
         printf("Uso: buscar <texto> <archivo>\n");
         return;
@@ -153,4 +149,19 @@ void moveOS(char **args){
     }
 
     printf("Archivo movido correctamente.\n");
+}
+
+void cleanOS(char **args){
+    printf("\033[H\033[J");
+    (void) args;
+}
+
+void dirOS(char **args){
+    char ruta[PATH_MAX]; 
+    if (getcwd(ruta, sizeof(ruta)) != NULL) {
+        printf("Directorio actual: %s\n", ruta);
+    } else {
+        perror("Error al obtener el directorio");
+    }
+    (void) args;
 }

@@ -34,11 +34,18 @@ void helpOS(char **args);
  */
 void exitOS(char **args);
 
+/**
+ * @brief COMANDOS AVANZADOS
+ *  Estos son los comandos realizados para la primera entrega, estos concisten en:
+ * @param args 
+ */
 // --- AVANZADOS (archivos) ---
 void buscarOS(char **args);
 void estadisticasOS(char **args);
 void renameOS(char **args);
 void moveOS(char **args);
+void dirOS(char **args);
+void cleanOS(char **args);
 
 /**
  * @brief Retorna el número de comandos registrados.

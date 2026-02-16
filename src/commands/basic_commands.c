@@ -15,14 +15,16 @@
 void helpOS(char **args) {
     printf("Comandos disponibles:\n");
     printf("    *[ listar ]: Muestra contenido del directorio actual\n");
-    printf("    *[ leer ] <archivo>: Muestra contenido de un archivo de texto\n");
+    printf("    *[ leer <archivo> ]: Muestra contenido de un archivo de texto\n");
     printf("    *[ tiempo ]: Muestra la fecha y hora actual\n");
     printf("    *[ calc <num1> <operador> <num2> ]: Realiza una operación aritmética\n");
     printf("    *[ ayuda ]: Muestra esta lista de comandos\n");
-    printf("    *[ buscar ] <texto> <archivo>: Busca un texto dentro de un archivo\n");
+    printf("    *[ buscar <texto> <archivo> ]: Busca un texto dentro de un archivo\n");
     printf("    *[ estadisticas ] <archivo>: Muestra bytes, lineas y palabras del archivo\n");
     printf("    *[ renombrar ] <viejo> <nuevo>: Cambia el nombre de un archivo\n");
-    printf("    *[ mover ] <origen> <destino>: Mueve un archivo de ubicación\n");
+    printf("    *[ mover <origen> <destino> ]: Mueve un archivo de ubicación\n");
+    printf("    *[ directorio ]: Muestra el directorio actual\n");
+    printf("    *[ limpiar ]: Limpia la información mostrada en pantalla\n");    
     printf("    *[ salir ]: Terminar la ejecución del sistema operativo\n");
 
     (void) args;// Evita advertencias de variables no utilizadas

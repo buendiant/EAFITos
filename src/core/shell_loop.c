@@ -21,6 +21,8 @@ char *nombreComandos[] = {
     "estadisticas",
     "renombrar",
     "mover",
+    "directorio",
+    "limpiar",
     "salir"
 };
 
@@ -35,6 +37,8 @@ void (*funcionesComandos[])(char **) = {
     &estadisticasOS,
     &renameOS,
     &moveOS,
+    &dirOS,
+    &cleanOS,
     &exitOS
 };
 
