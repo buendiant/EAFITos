@@ -19,10 +19,11 @@ void helpOS(char **args) {
     printf("    *[ tiempo ]: Muestra la fecha y hora actual\n");
     printf("    *[ calc <num1> <operador> <num2> ]: Realiza una operación aritmética\n");
     printf("    *[ ayuda ]: Muestra esta lista de comandos\n");
-    printf("    *[ salir ]: Terminar la ejecución del sistema operativo\n");
+    printf("    *[ buscar ] <texto> <archivo>: Busca un texto dentro de un archivo\n");
+    printf("    *[ estadisticas ] <archivo>: Muestra bytes, lineas y palabras del archivo\n");
     printf("    *[ renombrar ] <viejo> <nuevo>: Cambia el nombre de un archivo\n");
     printf("    *[ mover ] <origen> <destino>: Mueve un archivo de ubicación\n");
-
+    printf("    *[ salir ]: Terminar la ejecución del sistema operativo\n");
 
     (void) args;// Evita advertencias de variables no utilizadas
 }
@@ -51,7 +52,7 @@ void timeOS(char **args){
     time_t t = time(NULL);//Obtencion del tiempo actual
     struct tm tm = *localtime(&t);
     printf("Fecha y Hora del Sistema: %02d-%02d-%04d %02d:%02d:%02d\n",
-           tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900,
-           tm.tm_hour, tm.tm_min, tm.tm_sec);
+        tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900,
+        tm.tm_hour, tm.tm_min, tm.tm_sec);
     (void) args;
 }
