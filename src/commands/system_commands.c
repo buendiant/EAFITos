@@ -1,10 +1,8 @@
 /**
  * @file system_commands.c
- * @brief  Comandos 
+ * @brief  Comandos que implementan operaciones que requieren comunicacion directa con el sistema aritmetico del computador, en este caso la calculadora
  * 
- * Este archivo contiene funciones que implementan operaciones que requieren comunicacion directa con el sistema aritmetico del computador
- * 
- * 
+ * @copyright Copyright (c) 2026 EAFITOS.
 
  */
 #include <stdio.h>

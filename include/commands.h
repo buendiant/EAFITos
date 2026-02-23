@@ -40,11 +40,29 @@ void exitOS(char **args);
  * @param args 
  */
 // --- AVANZADOS (archivos) ---
-void buscarOS(char **args);
-void estadisticasOS(char **args);
+/**
+ * @brief Buscar archivos.
+ */
+void searchOS(char **args);
+/**
+ * @brief Mostrar estadísticas de un archivo.
+ */
+void statisticsOS(char **args);
+/**
+ * @brief Renombrar un archivo.
+ */
 void renameOS(char **args);
+/**
+ * @brief Mover un archivo.
+ */
 void moveOS(char **args);
+/**
+ * @brief Mostrar el directorio actual.
+ */
 void dirOS(char **args);
+/**
+ * @brief Limpiar la pantalla.
+ */
 void cleanOS(char **args);
 
 /**

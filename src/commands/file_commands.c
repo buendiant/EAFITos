@@ -3,7 +3,8 @@
  * @file file_commands.c
  * @brief Comandos que requieren la manipulacion de archivos.
  *
- * 
+ * @copyright Copyright (c) 2026 EAFITOS.
+
  */
 #include <stdio.h>
 #include <stdlib.h>

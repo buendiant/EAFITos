@@ -1,14 +1,20 @@
+/**
+ * @file basic_commands.c
+ * @brief Comandos básicos: ayuda, salir y tiempo.
+ * 
+ * @copyright Copyright (c) 2026 EAFITOS.
+ * 
+ */
 //Librerias
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "commands.h"
 /**
-  * @brief Comando de ayuda.
+  * @brief Comando de ayuda. (Comando básico del sistema).
   * 
   * Muestra una lista de comandos que el usuario puede ingresar para interactuar con el sistema opeativo.
-  * 
-  * 
+  * Cada comando se muestra con una breve descripción de su función para que el usuario pueda entender qué hace cada uno y cómo usarlo.
   * @param args Argumentos del comando (aunque en esta seccion no son requeridos).
   */
 
@@ -30,7 +36,7 @@ void helpOS(char **args) {
     (void) args;// Evita advertencias de variables no utilizadas
 }
 /**
- * @brief Comando de salida
+ * @brief Comando de salida (Comando básico del sistema).
  * Permite al usuario salir del sistema operativo de manera segura, mostrando un mensaje de despedida antes de finalizar la ejecución del programa.
  * 
  * @param args Argumentos del comando (nuevamente en esta seccion no son requeridos).
@@ -40,13 +46,14 @@ void exitOS(char **args){
     exit(0);
     
     (void) args;// Evita advertencias de variables no utilizadas
-
 }
 
 /**
- * @brief Comando de tiempo
+ * @brief Comando de tiempo (Comando básico del sistema).
  * 
  * Muestra la fecha y hora actual del sistema en un formato legible para el usuario.
+ * Esto se logra mediante la libreria time.h, utilizando time() para obtener el tiempo actual y localtime() para convertirlo a una estructura de tiempo local. 
+ * Luego se formatea la salida para mostrar el día, mes, año, hora, minutos y segundos.
  * 
  * @param args Argumentos del comando (no requerido).
  */
