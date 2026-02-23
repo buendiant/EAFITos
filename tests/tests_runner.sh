@@ -1,7 +1,10 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/sh
+set -eu
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# Habilita pipefail solo si el shell lo soporta (compatibilidad con sh/dash).
+(set -o pipefail) >/dev/null 2>&1 && set -o pipefail || true
+
+ROOT_DIR=$(cd "$(dirname "$0")/.." && pwd)
 BUILD_DIR="$ROOT_DIR/build/tests"
 
 mkdir -p "$BUILD_DIR"
