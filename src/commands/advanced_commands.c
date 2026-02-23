@@ -231,4 +231,5 @@ void usuarioOS(char **args) {
     printf("UID: %d\n", pw->pw_uid);
     printf("GID: %d\n", pw->pw_gid);
     printf("Directorio Home: %s\n", pw->pw_dir);
+    (void) args;
 }
