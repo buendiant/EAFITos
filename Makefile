@@ -44,7 +44,7 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 # ------------------------------------------------------------------------------
 # .PHONY indica que estos objetivos no son archivos reales.
 # 'all', 'clean' y 'run' son acciones, no archivos a crear.
-.PHONY: all clean run
+.PHONY: all clean run test
 
 # Regla por defecto (la primera que ve make). Construye el ejecutable.
 all: $(TARGET)
@@ -87,3 +87,9 @@ clean:
 run: all
 	@echo "🚀 Ejecutando EAFITos..."
 	./$(TARGET)
+
+
+# Ejecuta las pruebas del proyecto.
+test:
+	@echo "🧪 Ejecutando suite de tests..."
+	bash tests/tests_runner.sh
