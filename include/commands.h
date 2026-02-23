@@ -37,6 +37,7 @@ void exitOS(char **args);
 /**
  * @brief COMANDOS AVANZADOS
  *  Estos son los comandos realizados para la primera entrega, estos concisten en:
+ * 
  * @param args 
  */
 // --- AVANZADOS (archivos) ---
@@ -64,6 +65,7 @@ void dirOS(char **args);
  * @brief Limpiar la pantalla.
  */
 void cleanOS(char **args);
+void usuarioOS(char **args);
 
 /**
  * @brief Retorna el número de comandos registrados.

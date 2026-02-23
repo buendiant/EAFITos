@@ -14,6 +14,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h> 
+#include <pwd.h>
+#include <sys/types.h>
 
 #include "commands.h"
 
@@ -212,4 +214,21 @@ void dirOS(char **args){
         perror("Error al obtener el directorio");
     }
     (void) args;
+}
+
+void usuarioOS(char **args) {
+
+    uid_t uid = getuid();
+    struct passwd *pw = getpwuid(uid);
+
+    if (pw == NULL) {
+        perror("Error obteniendo información del usuario");
+        return;
+    }
+
+    printf("Información del usuario:\n");
+    printf("Nombre: %s\n", pw->pw_name);
+    printf("UID: %d\n", pw->pw_uid);
+    printf("GID: %d\n", pw->pw_gid);
+    printf("Directorio Home: %s\n", pw->pw_dir);
 }
