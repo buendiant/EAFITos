@@ -76,7 +76,7 @@ Esto evita subir binarios y archivos innecesarios al repositorio.
 ##  Integrantes
 
 * Juan Antonio Buendia Sanchez
-* Juan Pablo Parra Elmasri
+* Juan Pablo Parra El Masri
 * Ismael García Ceballos
 * Alessandro Soccol Mejía
 
@@ -84,4 +84,5 @@ Esto evita subir binarios y archivos innecesarios al repositorio.
 ---
 
 Proyecto desarrollado con fines educativos.
+
 
