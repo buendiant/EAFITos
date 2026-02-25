@@ -9,8 +9,133 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include "shell.h"
 #include "commands.h"
+
+#define LOG_DIR_PATH "tests"
+#define LOG_FILE_PATH "tests/command_history.txt"
+
+static void quitar_salto(char *texto) {
+    size_t largo;
+
+    if (texto == NULL) {
+        return;
+    }
+
+    largo = strlen(texto);
+    if (largo > 0 && texto[largo - 1] == '\n') {
+        texto[largo - 1] = '\0';
+    }
+}
+
+static void escribir_encabezado(FILE *log_file, const char *linea_original) {
+    time_t ahora;
+    struct tm *tm_info;
+    char fecha[64] = "fecha_desconocida";
+    char comando[1024] = {0};
+
+    if (linea_original != NULL) {
+        snprintf(comando, sizeof(comando), "%s", linea_original);
+        quitar_salto(comando);
+    }
+
+    ahora = time(NULL);
+    tm_info = localtime(&ahora);
+    if (tm_info != NULL) {
+        strftime(fecha, sizeof(fecha), "%Y-%m-%d %H:%M:%S", tm_info);
+    }
+
+    fprintf(log_file, "===== [%s] =====\n", fecha);
+    fprintf(log_file, "Input: %s\n", comando);
+    fprintf(log_file, "Output:\n");
+}
+
+static void ejecutar_y_registrar(char **args, const char *linea_original) {
+    FILE *log_file;
+    FILE *tmp;
+    int out_copia;
+    int err_copia;
+    int tmp_fd;
+    char buffer[512];
+    size_t leidos;
+
+    if (args == NULL || args[0] == NULL) {
+        return;
+    }
+
+    mkdir(LOG_DIR_PATH, 0777);
+    log_file = fopen(LOG_FILE_PATH, "a");
+    if (log_file == NULL) {
+        ejecutar(args);
+        return;
+    }
+
+    escribir_encabezado(log_file, linea_original);
+
+    /* 'salir' termina el proceso (exit), por eso se registra manualmente */
+    if (strcmp(args[0], "salir") == 0) {
+        fprintf(log_file, "Saliendo de EAFITos. ¡Hasta luego!\n\n");
+        fclose(log_file);
+        ejecutar(args);
+        return;
+    }
+
+    tmp = tmpfile();
+    if (tmp == NULL) {
+        ejecutar(args);
+        fprintf(log_file, "[No se pudo capturar output]\n\n");
+        fclose(log_file);
+        return;
+    }
+
+    fflush(stdout);
+    fflush(stderr);
+
+    out_copia = dup(STDOUT_FILENO);
+    err_copia = dup(STDERR_FILENO);
+    tmp_fd = fileno(tmp);
+
+    if (out_copia == -1 || err_copia == -1 || tmp_fd == -1) {
+        if (out_copia != -1) {
+            close(out_copia);
+        }
+        if (err_copia != -1) {
+            close(err_copia);
+        }
+        fclose(tmp);
+        ejecutar(args);
+        fprintf(log_file, "[No se pudo capturar output]\n\n");
+        fclose(log_file);
+        return;
+    }
+
+    dup2(tmp_fd, STDOUT_FILENO);
+    dup2(tmp_fd, STDERR_FILENO);
+
+    ejecutar(args);
+
+    fflush(stdout);
+    fflush(stderr);
+
+    dup2(out_copia, STDOUT_FILENO);
+    dup2(err_copia, STDERR_FILENO);
+    close(out_copia);
+    close(err_copia);
+
+    rewind(tmp);
+    while ((leidos = fread(buffer, 1, sizeof(buffer), tmp)) > 0) {
+        fwrite(buffer, 1, leidos, stdout);
+        fwrite(buffer, 1, leidos, log_file);
+    }
+
+    fprintf(log_file, "\n");
+    fclose(tmp);
+    fclose(log_file);
+}
 
 /**
  * @brief Arreglo de nombres de comandos.
@@ -98,7 +223,7 @@ void loop_shell(){
 
         line = readLine();
         args = parsear_linea(line);
-        ejecutar(args);
+        ejecutar_y_registrar(args, line);
 
         free(line);
         free(args);
