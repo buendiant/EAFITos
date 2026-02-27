@@ -216,7 +216,14 @@ void dirOS(char **args){
     (void) args;
 }
 
-void usuarioOS(char **args) {
+/**
+ * @brief Mostrar el usuario del sistema (Comando Avanzado del Sistema).
+ * Permite al usuario obtener información sobre el usuario actual que está utilizando el sistema operativo, como su nombre de usuario, UID, GID y directorio home.
+ * Esto se logra utilizando las funciones getuid() para obtener el UID del usuario actual y getpwuid() para obtener la información del usuario a partir de su UID.
+ * 
+ * @param args 
+ */
+void userOS(char **args) {
 
     uid_t uid = getuid();
     struct passwd *pw = getpwuid(uid);
@@ -231,4 +238,5 @@ void usuarioOS(char **args) {
     printf("UID: %d\n", pw->pw_uid);
     printf("GID: %d\n", pw->pw_gid);
     printf("Directorio Home: %s\n", pw->pw_dir);
+    (void) args;
 }

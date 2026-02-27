@@ -1,0 +1,104 @@
+===== [2026-02-26 19:45:53] =====
+Input: ayuda
+Output:
+Comandos disponibles:
+    *[ listar ]: Muestra contenido del directorio actual
+    *[ leer <archivo> ]: Muestra contenido de un archivo de texto
+    *[ tiempo ]: Muestra la fecha y hora actual
+    *[ calc <num1> <operador> <num2> ]: Realiza una operación aritmética
+    *[ ayuda ]: Muestra esta lista de comandos
+    *[ buscar <texto> <archivo> ]: Busca un texto dentro de un archivo
+    *[ estadisticas ] <archivo>: Muestra bytes, lineas y palabras del archivo
+    *[ renombrar ] <viejo> <nuevo>: Cambia el nombre de un archivo
+    *[ mover <origen> <destino> ]: Mueve un archivo de ubicación
+    *[ directorio ]: Muestra el directorio actual
+    *[ limpiar ]: Limpia la información mostrada en pantalla
+    *[ usuario ]: Muestra información del usuario actual
+    *[ salir ]: Terminar la ejecución del sistema operativo
+
+===== [2026-02-26 19:46:11] =====
+Input: salir
+Output:
+Saliendo de EAFITos. ¡Hasta luego!
+
+===== [2026-02-26 19:46:49] =====
+Input: ayuda
+Output:
+Comandos disponibles:
+    *[ listar ]: Muestra contenido del directorio actual
+    *[ leer <archivo> ]: Muestra contenido de un archivo de texto
+    *[ tiempo ]: Muestra la fecha y hora actual
+    *[ calc <num1> <operador> <num2> ]: Realiza una operación aritmética
+    *[ ayuda ]: Muestra esta lista de comandos
+    *[ buscar <texto> <archivo> ]: Busca un texto dentro de un archivo
+    *[ estadisticas ] <archivo>: Muestra bytes, lineas y palabras del archivo
+    *[ renombrar ] <viejo> <nuevo>: Cambia el nombre de un archivo
+    *[ mover <origen> <destino> ]: Mueve un archivo de ubicación
+    *[ directorio ]: Muestra el directorio actual
+    *[ limpiar ]: Limpia la información mostrada en pantalla
+    *[ usuario ]: Muestra información del usuario actual
+    *[ salir ]: Terminar la ejecución del sistema operativo
+
+===== [2026-02-26 19:47:04] =====
+Input: saliur
+Output:
+Comando no reconocido: saliur
+
+===== [2026-02-26 19:47:05] =====
+Input: salir
+Output:
+Saliendo de EAFITos. ¡Hasta luego!
+
+===== [2026-02-26 19:47:25] =====
+Input: ayuda
+Output:
+Comandos disponibles:
+    *[ listar ]: Muestra contenido del directorio actual
+    *[ leer <archivo> ]: Muestra contenido de un archivo de texto
+    *[ tiempo ]: Muestra la fecha y hora actual
+    *[ calc <num1> <operador> <num2> ]: Realiza una operación aritmética
+    *[ ayuda ]: Muestra esta lista de comandos
+    *[ buscar <texto> <archivo> ]: Busca un texto dentro de un archivo
+    *[ estadisticas ] <archivo>: Muestra bytes, lineas y palabras del archivo
+    *[ renombrar ] <viejo> <nuevo>: Cambia el nombre de un archivo
+    *[ mover <origen> <destino> ]: Mueve un archivo de ubicación
+    *[ directorio ]: Muestra el directorio actual
+    *[ limpiar ]: Limpia la información mostrada en pantalla
+    *[ usuario ]: Muestra información del usuario actual
+    *[ salir ]: Terminar la ejecución del sistema operativo
+
+===== [2026-02-26 19:54:02] =====
+Input: listar
+Output:
+Directorio actual: /mnt/c/Users/alsoc/OneDrive - Universidad EAFIT/Semestre 4/Sistemas Operativos/eafitos
+Archivos en el directorio actual:
+  .git
+  .gitignore
+  .vscode
+  build
+  CHANGELOG.md
+  docs
+  entregables
+  include
+  LICENSE
+  Makefile
+  scripts
+  src
+  test.txt
+  tests
+
+===== [2026-02-26 20:09:47] =====
+Input: calcular
+Output:
+Comando no reconocido: calcular
+
+===== [2026-02-26 20:11:27] =====
+Input: calc
+Output:
+Resultado: 256.00
+
+===== [2026-02-26 20:12:08] =====
+Input: calc
+Output:
+Resultado: 256.00
+
